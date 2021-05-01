@@ -1,0 +1,1 @@
+(Invoke-WebRequest -Uri api.spacetraders.io/game/status -Method Get).Content | ConvertFrom-Json |format-list
