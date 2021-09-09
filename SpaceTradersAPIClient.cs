@@ -3,11 +3,13 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Headers;
 
-namespace SpaceTradersAPIClient
+namespace BurningNebulaPlayground
 {
     class Program
     {
         private static readonly HttpClient client = new HttpClient();
+        private static string baseURL = "https://api.spacetraders.io/game/";
+        private static string URLpath = "status";
 
         static async Task Main(string[] args)
         {
@@ -16,13 +18,8 @@ namespace SpaceTradersAPIClient
         
         private static async Task CallAPI()
         {
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
-            client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
 
-            var stringTask = client.GetStringAsync("https://api.spacetraders.io/game/status");
-
+            var stringTask = client.GetStringAsync($"{baseURL}{URLpath}");
             var msg = await stringTask;
             Console.Write(msg);
         }
