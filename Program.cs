@@ -10,15 +10,16 @@ namespace SpaceTradersAPIClient
     {
         private static readonly HttpClient client = new HttpClient();
         private static string baseURL = "https://api.spacetraders.io/";
-        private static string URLpath;
-        private static string username = "skulltar_123456789";
-        private static string accessKeyURL = $"{baseURL}users/{username}/claim";
+        private static string statusURL = "game/status";
+        private static string username;
+        private static string accessKeyURL;
 
         static async Task Main()
         {
-            string statusURL = "game/status";
-            URLpath = statusURL;
-            await GetAPIStatus(URLpath);
+            await GetAPIStatus(statusURL);
+            Console.WriteLine("Enter username: ");
+            username = Console.ReadLine();
+            accessKeyURL = $"{baseURL}users/{username}/claim";
             await GetAccessToken(accessKeyURL);
         }
 
