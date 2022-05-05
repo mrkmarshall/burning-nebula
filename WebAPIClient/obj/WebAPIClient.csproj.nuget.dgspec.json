@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\micha\\Repos\\BurningNebula\\WebAPIClient\\WebAPIClient.csproj": {}
+    "C:\\Users\\micha\\Repos\\BurningNebula\\webapiclient\\WebAPIClient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\micha\\Repos\\BurningNebula\\WebAPIClient\\WebAPIClient.csproj": {
+    "C:\\Users\\micha\\Repos\\BurningNebula\\webapiclient\\WebAPIClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\micha\\Repos\\BurningNebula\\WebAPIClient\\WebAPIClient.csproj",
+        "projectUniqueName": "C:\\Users\\micha\\Repos\\BurningNebula\\webapiclient\\WebAPIClient.csproj",
         "projectName": "WebAPIClient",
-        "projectPath": "C:\\Users\\micha\\Repos\\BurningNebula\\WebAPIClient\\WebAPIClient.csproj",
+        "projectPath": "C:\\Users\\micha\\Repos\\BurningNebula\\webapiclient\\WebAPIClient.csproj",
         "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\micha\\Repos\\BurningNebula\\WebAPIClient\\obj\\",
+        "outputPath": "C:\\Users\\micha\\Repos\\BurningNebula\\webapiclient\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config"
