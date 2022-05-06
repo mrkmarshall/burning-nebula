@@ -1,19 +1,13 @@
 ﻿using System;
 using UtilityLibraries;
-
 using System.Threading.Tasks;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Collections.Generic;
-using System.Text.Json;
 
 class Program
 {
-    private static readonly HttpClient client = new HttpClient();
-
-    static async Task Main(string[] args)
+        static async Task Main(string[] args)
     {
-        var repositories = await ProcessRepositories();
+        
+        var repositories = await StringLibrary.ProcessRepositories();
         foreach (var repo in repositories)
         {
             Console.WriteLine(repo.Name);
@@ -25,7 +19,4 @@ class Program
             Console.WriteLine(repo.LastPush);
         }
     }
-
-
-
 }
