@@ -2,15 +2,18 @@
 
 namespace UtilityLibraries
 {
-    public static class StringLibrary
+    
+    public static async Task<List<Repository>> ProcessRepositories()
     {
-        public static bool StartsWithUpper(this string str)
-        {
-            if (string.IsNullOrWhiteSpace(str))
-                return false;
+        client.DefaultRequestHeaders.Accept.Clear();
+        client.DefaultRequestHeaders.Accept.Add(
+            new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+        client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
 
-            char ch = str[0];
-            return char.IsUpper(ch);
-        }
+        var streamTask = client.GetStreamAsync("https://api.github.com/orgs/dotnet/repos");
+        var repositories = await JsonSerializer.DeserializeAsync<List<Repository>>(await streamTask);
+        return repositories;
     }
+
+    
 }
