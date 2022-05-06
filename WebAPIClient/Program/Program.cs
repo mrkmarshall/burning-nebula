@@ -1,13 +1,18 @@
 ﻿using System;
 using UtilityLibraries;
 using System.Threading.Tasks;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 class Program
 {
-        static async Task Main(string[] args)
+
+    private static readonly HttpClient client = new HttpClient();
+
+    static async Task Main(string[] args)
     {
-        
-        var repositories = await GitHubRepositoryProcessor.ProcessRepositories();
+
+        var repositories = await GitHubRepositoryProcessor.ProcessRepositories(client);
         foreach (var repo in repositories)
         {
             Console.WriteLine(repo.Name);

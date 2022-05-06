@@ -9,9 +9,7 @@ namespace UtilityLibraries
 {
     public static class GitHubRepositoryProcessor
     {
-        private static readonly HttpClient client = new HttpClient();
-
-        public static async Task<List<Repository>> ProcessRepositories()
+        public static async Task<List<Repository>> ProcessRepositories(HttpClient client)
         {
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
