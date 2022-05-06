@@ -7,11 +7,14 @@ class Program
 {
 
     private static readonly HttpClient client = new HttpClient();
+    private static string gitHubUrl = new string("https://api.github.com/orgs/dotnet/repos");
+
+    IRepositoryProcessor processor = new GitHubRepositoryProcessor(gitHubUrl, client);
 
     static async Task Main(string[] args)
     {
 
-        var repositories = await GitHubRepositoryProcessor.ProcessRepositories(client);
+        var repositories = await GitHubRepositoryProcessor.ProcessRepositories(gitHubUrl, client);
         foreach (var repo in repositories)
         {
             Console.WriteLine(repo.Name);
