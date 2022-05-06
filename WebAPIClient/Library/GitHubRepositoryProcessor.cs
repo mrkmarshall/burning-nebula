@@ -7,7 +7,7 @@ using System.Text.Json;
 
 namespace UtilityLibraries
 {
-    public static class StringLibrary
+    public static class GitHubRepositoryProcessor
     {
         private static readonly HttpClient client = new HttpClient();
 

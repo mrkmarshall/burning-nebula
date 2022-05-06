@@ -7,7 +7,7 @@ class Program
         static async Task Main(string[] args)
     {
         
-        var repositories = await StringLibrary.ProcessRepositories();
+        var repositories = await GitHubRepositoryProcessor.ProcessRepositories();
         foreach (var repo in repositories)
         {
             Console.WriteLine(repo.Name);
