@@ -12,10 +12,10 @@ namespace UtilityLibraries
         public string URL { get; private set; }
         private HttpClient Client;
 
-        public GitHubRepositoryProcessor(string urlParameter, HttpClient clientParameter)
+        public GitHubRepositoryProcessor(string url, HttpClient client)
         {
-            URL = urlParameter;
-            Client = clientParameter;
+            URL = url;
+            Client = client;
         }
 
         public async Task<List<Repository>> ProcessRepositories()
