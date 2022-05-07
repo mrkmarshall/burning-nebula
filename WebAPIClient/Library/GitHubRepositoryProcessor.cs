@@ -11,11 +11,14 @@ namespace UtilityLibraries
     public class GitHubRepositoryProcessor : IRepositoryProcessor
     {
 
-        public GitHubRepositoryProcessor(string url, HttpClient client){} // I'm not sure about this constructor part but it seems to work?
         public string url;
         public HttpClient client;
-        public string GetString() { return url; }
-        public HttpClient GetClient() { return client; }
+
+        public GitHubRepositoryProcessor(string urlParameter, HttpClient clientParameter)
+        {
+            url = urlParameter;
+            client = clientParameter;
+        }
 
         public static async Task<List<Repository>> ProcessRepositories(string url, HttpClient client)
         {
@@ -32,7 +35,7 @@ namespace UtilityLibraries
         // The below code was recommended and added by VSCode. 
         // I was trying to figure out how to implement a class.
 
-        public ReadOnlyCollection<Repository> ProcessRepositories() 
+        public ICollection<Repository> ProcessRepositories() 
         {
             throw new NotImplementedException();
         }
