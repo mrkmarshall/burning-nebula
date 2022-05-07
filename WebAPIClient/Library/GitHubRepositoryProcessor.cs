@@ -11,8 +11,8 @@ namespace UtilityLibraries
     public class GitHubRepositoryProcessor : IRepositoryProcessor
     {
 
-        public string url;
-        public HttpClient client;
+        private string url;
+        private HttpClient client;
 
         public GitHubRepositoryProcessor(string urlParameter, HttpClient clientParameter)
         {
@@ -20,7 +20,7 @@ namespace UtilityLibraries
             client = clientParameter;
         }
 
-        public static async Task<List<Repository>> ProcessRepositories(string url, HttpClient client)
+        public async Task<List<Repository>> ProcessRepositories()
         {
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
@@ -30,14 +30,6 @@ namespace UtilityLibraries
             var streamTask = client.GetStreamAsync(url);
             var repositories = await JsonSerializer.DeserializeAsync<List<Repository>>(await streamTask);
             return repositories;
-        }
-
-        // The below code was recommended and added by VSCode. 
-        // I was trying to figure out how to implement a class.
-
-        public ICollection<Repository> ProcessRepositories() 
-        {
-            throw new NotImplementedException();
         }
     }
 

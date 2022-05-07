@@ -11,10 +11,10 @@ class Program
 
     IRepositoryProcessor processor = new GitHubRepositoryProcessor(gitHubUrl, client);
 
-    static async Task Main(string[] args)
+    async Task Main(string[] args)
     {
 
-        var repositories = await GitHubRepositoryProcessor.ProcessRepositories(gitHubUrl, client);
+        var repositories = await processor.ProcessRepositories();
         foreach (var repo in repositories)
         {
             Console.WriteLine(repo.Name);

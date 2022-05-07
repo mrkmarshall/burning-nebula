@@ -1,13 +1,15 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+
 
 namespace UtilityLibraries
 {
 
     public interface IRepositoryProcessor
     {
-        public ICollection<Repository> ProcessRepositories();
+        public Task<List<Repository>> ProcessRepositories();
     }
 
 }
