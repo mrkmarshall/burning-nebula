@@ -9,7 +9,7 @@ namespace UtilityLibraries
     public class GitHubRepositoryProcessor : IRepositoryProcessor
     {
 
-        private string url;
+        public string url { get; private set; }
         private HttpClient client;
 
         public GitHubRepositoryProcessor(string urlParameter, HttpClient clientParameter)
