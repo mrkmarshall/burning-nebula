@@ -2,6 +2,7 @@
 using UtilityLibraries;
 using System.Threading.Tasks;
 using System.Net.Http;
+using System.Net.Http.Headers;
 
 class Program
 {
@@ -13,6 +14,11 @@ class Program
     async static Task Main(string[] args)
     {
         IRepositoryProcessor processor = new GitHubRepositoryProcessor(gitHubUrl, client);
+
+        client.DefaultRequestHeaders.Accept.Clear();
+        client.DefaultRequestHeaders.Accept.Add(
+            new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+        client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
 
         var repositories = await processor.ProcessRepositories();
         foreach (var repo in repositories)
