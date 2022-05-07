@@ -9,10 +9,10 @@ class Program
     private static readonly HttpClient client = new HttpClient();
     private static string gitHubUrl = new string("https://api.github.com/orgs/dotnet/repos");
 
-    static IRepositoryProcessor processor = new GitHubRepositoryProcessor(gitHubUrl, client);
 
     async static Task Main(string[] args)
     {
+        IRepositoryProcessor processor = new GitHubRepositoryProcessor(gitHubUrl, client);
 
         var repositories = await processor.ProcessRepositories();
         foreach (var repo in repositories)
