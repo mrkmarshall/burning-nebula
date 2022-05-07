@@ -9,18 +9,18 @@ namespace UtilityLibraries
     public class GitHubRepositoryProcessor : IRepositoryProcessor
     {
 
-        public string url { get; private set; }
-        private HttpClient client;
+        public string URL { get; private set; }
+        private HttpClient Client;
 
         public GitHubRepositoryProcessor(string urlParameter, HttpClient clientParameter)
         {
-            url = urlParameter;
-            client = clientParameter;
+            URL = urlParameter;
+            Client = clientParameter;
         }
 
         public async Task<List<Repository>> ProcessRepositories()
         {
-            var streamTask = client.GetStreamAsync(url);
+            var streamTask = Client.GetStreamAsync(URL);
             var repositories = await JsonSerializer.DeserializeAsync<List<Repository>>(await streamTask);
             return repositories;
         }
