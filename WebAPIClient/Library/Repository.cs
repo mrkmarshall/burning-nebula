@@ -2,7 +2,7 @@ using System;
 using System.Text.Json.Serialization;
 
 
-namespace UtilityLibraries
+namespace WebApi.Library
 {
     public class Repository
     {

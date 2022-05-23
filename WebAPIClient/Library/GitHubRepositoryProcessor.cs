@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Collections.Generic;
 using System.Text.Json;
 
-namespace UtilityLibraries
+namespace WebApi.Library
 {
     public class GitHubRepositoryProcessor : IRepositoryProcessor
     {
